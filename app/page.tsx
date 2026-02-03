@@ -1,5 +1,6 @@
 "use client"
 
+import ComplainingWrapper from "@/components/complainingWrapper";
 import NiceButton from "@/components/niceButton";
 import NiceText from "@/components/niceText";
 import RunawayWrapper from "@/components/runawayWrapper";
@@ -31,11 +32,13 @@ export default function Home() {
                             </div>
                         </DialogContent>
                     </Dialog>
-                    <RunawayWrapper containerRef={containerRef}> 
-                        <NiceButton> 
-                            👎No...
-                        </NiceButton>
-                    </RunawayWrapper>
+                    <div>
+                        <RunawayWrapper containerRef={containerRef}> 
+                            <NiceButton> 
+                                <ComplainingWrapper defaultText="👎No..." />
+                            </NiceButton>
+                        </RunawayWrapper>
+                    </div>
                 </div>
             </div>
         </div>

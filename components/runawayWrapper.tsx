@@ -2,14 +2,18 @@ import { ReactNode, useRef } from "react";
 import { animate, spring } from "animejs";
 
 interface RunawayProps {
-    containerRef;
+    containerRef: React.RefObject<HTMLElement | null>;
     children: ReactNode;
 }
 
 export default function RunawayWrapper({containerRef, children}: RunawayProps) {
     const buttonRef = useRef<HTMLDivElement>(null);
 
-    const animateMove = (element, top, left) => {
+    const animateMove = (
+        element: HTMLElement, 
+        top: number, 
+        left: number
+    ) => {
         animate(element, {
             x: {
                 to: left/8,
@@ -29,6 +33,10 @@ export default function RunawayWrapper({containerRef, children}: RunawayProps) {
     };
 
     const run = () => {
+        if (buttonRef.current == null || containerRef.current == null) {
+            return;
+        }
+
         const rect = containerRef.current.getBoundingClientRect();
         const top = getRandomNumber(rect.bottom * 2);
         const left = getRandomNumber(rect.right * 2);
