@@ -7,7 +7,16 @@ interface ComplainingProps {
 }
 
 export default function ComplainingWrapper({defaultText}: ComplainingProps) {
-    const texts = ["🥹Please??", "Halp Police!", "Click yes!", "Stop chasing me!", "Stop this crazy lady!", "I'll bite you!"]
+    const texts = [
+        "🥹Please??", 
+        "Halp Police!", 
+        "🫵Click yes!", 
+        "✋Stop chasing me!", 
+        "Stop this crazy lady!", 
+        "I'll bite you!", 
+        "With your injured foot?",
+        "🫲🥴🫱67",
+    ]
     const [currentText, setText] = useState(defaultText)
 
     const changeText = () => {
