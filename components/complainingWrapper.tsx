@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface ComplainingProps {
     defaultText: string;
+    success: boolean;
 }
 
-export default function ComplainingWrapper({defaultText}: ComplainingProps) {
+export default function ComplainingWrapper({defaultText, success}: ComplainingProps) {
     const texts = [
         "🥹Please??", 
         "Halp Police!", 
@@ -18,6 +19,8 @@ export default function ComplainingWrapper({defaultText}: ComplainingProps) {
         "🫲🥴🫱67",
     ]
     const [currentText, setText] = useState(defaultText)
+
+    const successText = "Harh! Sucker...Giving up already?"
 
     const changeText = () => {
         let next_text = texts[Math.floor(Math.random() * texts.length)]
@@ -31,7 +34,7 @@ export default function ComplainingWrapper({defaultText}: ComplainingProps) {
 
     return (
         <div onClick={() => changeText()} onMouseOver={() => changeText()}>
-            {currentText}
+            {success? successText: currentText}
         </div>
     )
 }

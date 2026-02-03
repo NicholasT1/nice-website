@@ -5,10 +5,11 @@ import NiceButton from "@/components/niceButton";
 import NiceText from "@/components/niceText";
 import RunawayWrapper from "@/components/runawayWrapper";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [success, setSuccess] = useState(false)
 
     return (
         <div className="flex h-screen items-center justify-center bg-stone-200 bg-auto bg-[url(/nice-website/hearts.png)]">
@@ -17,7 +18,7 @@ export default function Home() {
                 <div className="flex justify-between">
                     <Dialog>
                         <DialogTrigger asChild>
-                            <NiceButton> 
+                            <NiceButton onClick={() => setSuccess(true)}> 
                                 ❤️YES!!!
                             </NiceButton>
                         </DialogTrigger>
@@ -34,7 +35,7 @@ export default function Home() {
                     </Dialog>
                     <RunawayWrapper containerRef={containerRef}> 
                         <NiceButton> 
-                            <ComplainingWrapper defaultText="👎No..." />
+                            <ComplainingWrapper defaultText="👎No..." success={success} />
                         </NiceButton>
                     </RunawayWrapper>
                 </div>
