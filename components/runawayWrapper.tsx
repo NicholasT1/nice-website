@@ -1,0 +1,48 @@
+import { ReactNode, useRef } from "react";
+import { animate, spring } from "animejs";
+
+interface RunawayProps {
+    containerRef;
+    children: ReactNode;
+}
+
+export default function RunawayWrapper({containerRef, children}: RunawayProps) {
+    const buttonRef = useRef<HTMLDivElement>(null);
+
+    const animateMove = (element, top, left) => {
+        animate(element, {
+            x: {
+                to: left/8,
+                ease: spring({
+                    bounce: 0.4,
+                    duration: 500
+                })
+            },
+            y: {
+                to: top/8,
+                ease: spring({
+                    bounce: 0.4,
+                    duration: 500
+                })
+            }
+        });
+    };
+
+    const run = () => {
+        const rect = containerRef.current.getBoundingClientRect();
+        const top = getRandomNumber(rect.bottom * 2);
+        const left = getRandomNumber(rect.right * 2);
+
+        animateMove(buttonRef.current, top, left);
+    };
+
+    const getRandomNumber = (num: number) => {
+        return (Math.random() * 2 - 1) * num
+    };
+
+    return (
+        <div onMouseOver={() => run()} onClick={() => run()} ref={buttonRef}>
+            {children}
+        </div>
+    )
+}
