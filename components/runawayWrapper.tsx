@@ -16,14 +16,14 @@ export default function RunawayWrapper({containerRef, children}: RunawayProps) {
     ) => {
         animate(element, {
             x: {
-                to: left/8,
+                to: left/2,
                 ease: spring({
                     bounce: 0.4,
                     duration: 500
                 })
             },
             y: {
-                to: top/8,
+                to: top/2,
                 ease: spring({
                     bounce: 0.4,
                     duration: 500
@@ -38,14 +38,14 @@ export default function RunawayWrapper({containerRef, children}: RunawayProps) {
         }
 
         const rect = containerRef.current.getBoundingClientRect();
-        const top = getRandomNumber(rect.bottom * 2);
-        const left = getRandomNumber(rect.right * 2);
+        const top = getRandomNumber(rect.bottom);
+        const left = getRandomNumber(rect.right);
 
         animateMove(buttonRef.current, top, left);
     };
 
     const getRandomNumber = (num: number) => {
-        return (Math.random() * 2 - 1) * num
+        return (Math.random() * -1) * num
     };
 
     return (

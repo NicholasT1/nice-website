@@ -14,7 +14,7 @@ export default function Home() {
         <div className="flex h-screen items-center justify-center bg-stone-200 bg-auto bg-[url(/nice-website/hearts.png)]" ref={containerRef}>
             <div className="flex flex-col lg:gap-y-10 gap-y-5 bg-stone-200"> 
                 <NiceText> Will you be my Valentine?? </NiceText>
-                <div className="flex items-center justify-center gap-x-10">
+                <div className="flex justify-between">
                     <Dialog>
                         <DialogTrigger asChild>
                             <NiceButton> 
@@ -32,13 +32,11 @@ export default function Home() {
                             </div>
                         </DialogContent>
                     </Dialog>
-                    <div>
-                        <RunawayWrapper containerRef={containerRef}> 
-                            <NiceButton> 
-                                <ComplainingWrapper defaultText="👎No..." />
-                            </NiceButton>
-                        </RunawayWrapper>
-                    </div>
+                    <RunawayWrapper containerRef={containerRef}> 
+                        <NiceButton> 
+                            <ComplainingWrapper defaultText="👎No..." />
+                        </NiceButton>
+                    </RunawayWrapper>
                 </div>
             </div>
         </div>
