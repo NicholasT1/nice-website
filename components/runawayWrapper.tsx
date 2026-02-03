@@ -39,7 +39,7 @@ export default function RunawayWrapper({containerRef, children}: RunawayProps) {
 
         const rect = containerRef.current.getBoundingClientRect();
         const top = getRandomNumber(rect.y * 1.5);
-        const left = getRandomNumber(rect.x);
+        const left = getRandomNumber(rect.x * 4);
 
         animateMove(buttonRef.current, top, left);
     };
