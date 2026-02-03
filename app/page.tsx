@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <div className="flex h-screen items-center justify-center bg-stone-200 bg-auto bg-[url(/nice-website/hearts.png)]">
             <div className="flex flex-col lg:gap-y-10 gap-y-5 bg-stone-200" ref={containerRef}> 
-                <NiceText> Will you be my Valentine?? </NiceText>
+                <NiceText> Be my Valentine?? </NiceText>
                 <div className="flex justify-between">
                     <Dialog>
                         <DialogTrigger asChild>
